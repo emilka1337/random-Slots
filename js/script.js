@@ -32,6 +32,31 @@ function fillVariants() {
     saveVariants();
 }
 
+function launchSlot() {
+    const ITERATIONS = 20;
+
+    document.querySelector('.slot').classList.remove("animated");
+
+    document.querySelector('.slot').removeEventListener("click", launchSlot);
+    setTimeout(function() {
+        document.querySelector('.slot').addEventListener("click", launchSlot);
+    }, 100 * ITERATIONS);
+
+    if (VARIANTS.length > 1) {
+        for (let i = 0; i < ITERATIONS; i++) {
+            setTimeout(function () {
+                document.querySelector('.slot > h1').innerHTML = VARIANTS[random(0, VARIANTS.length)];
+            }, i * 100);
+
+            setTimeout(function () {
+                document.querySelector('.slot').classList.add("animated");
+            }, 100 * ITERATIONS);
+        }
+    } else {
+        alert("Please, enter at least 2 variants");
+    }
+}
+
 document.querySelector('.clear-variants').addEventListener("click", function() {
     VARIANTS = [];
     fillVariants();
@@ -43,22 +68,6 @@ document.querySelector('.add-variant').addEventListener("click", function () {
     fillVariants()
 });
 
-document.querySelector('.slot').addEventListener("click", function () {
-    document.querySelector('.slot').classList.remove("animated");
-
-    if (VARIANTS.length > 1) {
-        for (let i = 0; i < 20; i++) {
-            setTimeout(function () {
-                document.querySelector('.slot > h1').innerHTML = VARIANTS[random(0, VARIANTS.length)];
-            }, i * 100);
-
-            setTimeout(function() {
-                document.querySelector('.slot').classList.add("animated");
-            }, 100 * 20);
-        }
-    } else {
-        alert("Please, enter at least 2 variants");
-    }
-});
+document.querySelector('.slot').addEventListener("click", launchSlot);
 
 loadVariants();
