@@ -1,0 +1,19 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+body {
+    background: crimson;
+}
+
+* {
+    font-family: Montserrat;
+}
+
+.container-lg {
+    padding: 100px 0px;
+
+    @import "./slot";
+    @import "./variants";
+}

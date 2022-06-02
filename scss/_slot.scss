@@ -1,0 +1,49 @@
+.slot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 40px;
+    background: #fff;
+    height: 50vh;
+    cursor: pointer;
+
+    &.animated {
+        // animation: slotEnd 1s alternate;
+        animation: slot 500ms alternate infinite;
+    }
+
+    @media screen and (min-width: 992px) {
+        &:hover {
+            background: #f4f4f4;
+
+            h1 {
+                animation: slot 500ms alternate infinite;
+            }
+        }
+    }
+
+    @keyframes slot {
+        from {
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes slotEnd {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.1);
+        }
+
+        100% {
+            transition: scale(1);
+        }
+    }
+}
