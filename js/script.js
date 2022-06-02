@@ -1,6 +1,17 @@
-const VARIANTS = [];
+let VARIANTS = [];
 
 let random = (min, max) => Math.floor(Math.random() * (min, max) + min);
+
+function saveVariants() {
+    sessionStorage.setItem("variants", JSON.stringify(VARIANTS));
+}
+
+function loadVariants() {
+    if (sessionStorage.getItem("variants")) {
+        VARIANTS = JSON.parse(sessionStorage.getItem("variants"));
+        fillVariants();
+    }
+}
 
 function fillVariants() {
     document.querySelector('.variants-container > main').innerHTML = null;
@@ -17,6 +28,8 @@ function fillVariants() {
 
         document.querySelector('.variants-container > main').append(button);
     });
+
+    saveVariants();
 }
 
 document.querySelector('.add-variant').addEventListener("click", function () {
@@ -43,4 +56,4 @@ document.querySelector('.slot').addEventListener("click", function () {
     }
 });
 
-fillVariants();
+loadVariants();
