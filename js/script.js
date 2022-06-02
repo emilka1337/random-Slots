@@ -32,6 +32,11 @@ function fillVariants() {
     saveVariants();
 }
 
+document.querySelector('.clear-variants').addEventListener("click", function() {
+    VARIANTS = [];
+    fillVariants();
+});
+
 document.querySelector('.add-variant').addEventListener("click", function () {
     let variant = prompt("Please, enter your variant:");
     VARIANTS.push(variant);
