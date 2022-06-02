@@ -38,7 +38,7 @@ function launchSlot() {
     document.querySelector('.slot').classList.remove("animated");
 
     document.querySelector('.slot').removeEventListener("click", launchSlot);
-    setTimeout(function() {
+    setTimeout(function () {
         document.querySelector('.slot').addEventListener("click", launchSlot);
     }, 100 * ITERATIONS);
 
@@ -57,13 +57,18 @@ function launchSlot() {
     }
 }
 
-document.querySelector('.clear-variants').addEventListener("click", function() {
+document.querySelector('.clear-variants').addEventListener("click", function () {
     VARIANTS = [];
     fillVariants();
 });
 
 document.querySelector('.add-variant').addEventListener("click", function () {
     let variant = prompt("Please, enter your variant:");
+
+    if (!variant) {
+        return;
+    }
+    
     VARIANTS.push(variant);
     fillVariants()
 });
