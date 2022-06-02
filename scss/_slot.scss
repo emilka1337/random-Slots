@@ -3,14 +3,17 @@
     justify-content: center;
     align-items: center;
     margin: auto;
+    padding: 30px;
     border-radius: 40px;
     background: #fff;
     min-height: 50vh;
     cursor: pointer;
 
     &.animated {
-        animation: slotEnd 1s alternate;
-        // animation: slot 500ms alternate infinite;
+        h1 {
+            animation: slotEnd 1s alternate;
+            // animation: slot 500ms alternate infinite;
+        }
     }
 
     @media screen and (min-width: 992px) {

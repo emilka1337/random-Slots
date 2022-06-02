@@ -30,13 +30,14 @@ body {
       -ms-flex-align: center;
           align-items: center;
   margin: auto;
+  padding: 30px;
   border-radius: 40px;
   background: #fff;
   min-height: 50vh;
   cursor: pointer;
 }
 
-.container-lg .slot.animated {
+.container-lg .slot.animated h1 {
   -webkit-animation: slotEnd 1s alternate;
           animation: slotEnd 1s alternate;
 }
